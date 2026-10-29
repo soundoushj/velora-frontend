@@ -2,24 +2,19 @@ import { Link } from 'react-router-dom';
 import useMediaQuery from '../hooks/useMediaQuery';
 
 export default function Hero({
-  videoSrc = '/assets/velora-hero.mp4',
+  imageSrc = '/assets/velora5.png',
 }) {
-  // Phones get a clean, text-only hero: the video is not rendered (nor downloaded) there.
   const isMobile = useMediaQuery('(max-width: 760px)');
+
   return (
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-media" aria-hidden="true">
         {!isMobile && (
-          <video
+          <img
             className="hero-img"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+            src={imageSrc}
+            alt=""
+          />
         )}
 
         <div className="hero-veil" />
